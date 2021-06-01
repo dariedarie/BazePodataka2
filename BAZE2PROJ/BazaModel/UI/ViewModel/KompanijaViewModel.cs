@@ -24,6 +24,7 @@ namespace UI.ViewModel
         private string nazMKmp;
         private string adrKmp;
         private string adrMKmp;
+        
 
 
         public KompanijaViewModel()
@@ -64,6 +65,7 @@ namespace UI.ViewModel
             }
         }
 
+        
 
 
         public string NazKmp

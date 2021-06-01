@@ -7,6 +7,60 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="97,400,0,0" VerticalAlignment="Top" Width="110" Height="40" Command="{Binding AddCommand}"/>
+        <TextBox x:Name="textBoxNaziv" HorizontalAlignment="Left" Height="27" Margin="97,290,0,0" TextWrapping="Wrap" Text="{Binding NazPosl, Mode=TwoWay}" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.492,0.319"/>
+        <DataGrid  HorizontalAlignment="Left" Height="250"  VerticalAlignment="Top" Width="780"
+            ItemsSource="{Binding PoslsTemp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+				BorderBrush="Black"
+				Background="White"
+				Foreground="Black"
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column"
+				SelectedItem="{Binding SelectedPosl, UpdateSourceTrigger=PropertyChanged}" Margin="10,10,0,0">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding IdPosl}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding NazPoslovnice}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Lokacija" Width="300" Binding="{Binding Lokacija}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kompanija" Width="*" Binding="{Binding KompanijaZaIgreNaSrecuIdKmp}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Content="Lokacija:" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.418,0.57" Width="73"/>
+        <TextBox x:Name="textBoxAdresa" HorizontalAlignment="Left" Height="26" Margin="97,348,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Text="{Binding Lokacija, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[Naziv]}" VerticalAlignment="Top" Width="110" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,327,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[Lokacija]}" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.696"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button Content="Obrisi selektovanog" HorizontalAlignment="Left" Margin="242,396,0,0" VerticalAlignment="Top" Width="112" Height="44" Command="{Binding DeleteCommand}"/>
+        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="582,413,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="609,290,0,0" TextWrapping="Wrap" Text="{Binding NazMPosl, UpdateSourceTrigger=PropertyChanged ,Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="609,343,0,0" TextWrapping="Wrap" Text="{Binding LokacijaM, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
+        <Label Content="NazivModify:" HorizontalAlignment="Left" Margin="497,285,0,0" VerticalAlignment="Top" Height="32" Width="92" />
+        <Label Content="LokacijaModify:" HorizontalAlignment="Left" Margin="498,343,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="OKModify" HorizontalAlignment="Left" Margin="715,413,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="622,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[NazivPM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <TextBlock HorizontalAlignment="Left" Margin="609,318,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[LokacijaM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <ComboBox HorizontalAlignment="Left" Margin="242,291,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Kompanije}" SelectedItem="{Binding Izbor, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Kompanije:" HorizontalAlignment="Left" Margin="242,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,0.404" Width="89"/>
+        <ComboBox HorizontalAlignment="Left" Margin="377,290,0,0" VerticalAlignment="Top" Width="115" ItemsSource="{Binding Path=Kompanije}" SelectedItem="{Binding IzborM, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="KompanijaModify" HorizontalAlignment="Left" Margin="377,260,0,0" VerticalAlignment="Top" Width="115"/>
     </Grid>
+
 </UserControl>

@@ -15,6 +15,9 @@
         <DataTemplate DataType="{x:Type viewModel:KompanijaViewModel}">
             <views:KompanijaView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PoslovnicaViewModel}">
+            <views:PoslovnicaView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -28,8 +31,8 @@
                           CommandParameter="kmp"/>
                 <MenuItem Header="Klijent" Command="{Binding NavCommand}"
                           CommandParameter="klijent"/>
-                <MenuItem Header="Graph" Command="{Binding NavCommand}"
-                          CommandParameter="graph"/>
+                <MenuItem Header="Poslovnica" Command="{Binding NavCommand}"
+                          CommandParameter="poslovnica"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">
