@@ -12,7 +12,7 @@ namespace UI.ViewModel
     public class OnlineISViewModel:ValidationBase
     {
         private ObservableCollection<OnlineIgraNaSrecu> onlineISTemp = new ObservableCollection<OnlineIgraNaSrecu>();
-        private ObservableCollection<KompanijaZaIgreNaSrecu> kmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>();
+       
         private ObservableCollection<OnlineSajt> onlineSajtTemp = new ObservableCollection<OnlineSajt>();
         private string nazIgre;
         private string nazIgreM;
@@ -32,7 +32,6 @@ namespace UI.ViewModel
         {
             SelectedIS = null;
             onlineISTemp = new ObservableCollection<OnlineIgraNaSrecu>(new KmpIgreDBModelContext().OnlineIgraNaSrecus.ToList());
-            kmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>(new KmpIgreDBModelContext().KompanijaZaIgreNaSrecus.ToList());
             onlineSajtTemp = new ObservableCollection<OnlineSajt>(new KmpIgreDBModelContext().OnlineSajts.ToList());
             foreach (var item in onlineSajtTemp)
             {
@@ -243,6 +242,7 @@ namespace UI.ViewModel
                     var context = new KmpIgreDBModelContext();
                     OnlineIgraNaSrecu k = context.OnlineIgraNaSrecus.Where(x => x.IdIgre == SelectedIS.IdIgre).FirstOrDefault();
                     NazIgreM = SelectedIS.NazIgre;
+               
                     
 
 
@@ -261,7 +261,7 @@ namespace UI.ViewModel
             var context = new KmpIgreDBModelContext();
             OnlineIgraNaSrecu k = context.OnlineIgraNaSrecus.Where(x => x.IdIgre == SelectedIS.IdIgre).FirstOrDefault();
             k.NazIgre = NazIgreM;
-            
+
             context.Entry(k).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
             OnlineISTemp.Remove(k);

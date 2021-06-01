@@ -23,6 +23,7 @@ namespace UI.Views
         public OnlinePrenosSPView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.OnlinePrenosSPViewModel();
         }
     }
 }

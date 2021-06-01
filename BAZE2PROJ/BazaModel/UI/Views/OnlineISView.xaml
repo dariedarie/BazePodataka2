@@ -37,15 +37,15 @@
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="82"/>
         <TextBlock HorizontalAlignment="Left" Margin="97,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[Naziv]}" VerticalAlignment="Top" Width="110" Height="20"/>
         <Button Content="Obrisi selektovanog" HorizontalAlignment="Left" Margin="334,385,0,0" VerticalAlignment="Top" Width="112" Height="44" Command="{Binding DeleteCommand}"/>
-        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="582,413,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
+        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="544,329,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="609,290,0,0" TextWrapping="Wrap" Text="{Binding NazIgreM, UpdateSourceTrigger=PropertyChanged ,Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
         <Label Content="NazivModify:" HorizontalAlignment="Left" Margin="497,285,0,0" VerticalAlignment="Top" Height="32" Width="92" />
-        <Button Content="OKModify" HorizontalAlignment="Left" Margin="715,413,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
+        <Button Content="OKModify" HorizontalAlignment="Left" Margin="670,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
         <TextBlock HorizontalAlignment="Left" Margin="622,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[NazivIM]}" VerticalAlignment="Top" Height="20" Width="136"/>
         <ComboBox HorizontalAlignment="Left" Margin="97,329,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Kompanije}" SelectedItem="{Binding Izbor, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Kompanije:" HorizontalAlignment="Left" Margin="0,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,0.404" Width="89"/>
-        <ComboBox HorizontalAlignment="Left" Margin="252,295,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Sajt}" SelectedItem="{Binding IzborO, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="OnlineSajt" HorizontalAlignment="Left" Margin="252,260,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="303,295,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Sajt}" SelectedItem="{Binding IzborO, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="OnlineSajt" HorizontalAlignment="Left" Margin="303,260,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
 
     </Grid>
 </UserControl>

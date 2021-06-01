@@ -24,6 +24,9 @@
         <DataTemplate DataType="{x:Type viewModel:OnlineISViewModel}">
             <views:OnlineISView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OnlinePrenosSPViewModel}">
+            <views:OnlinePrenosSPView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -43,6 +46,8 @@
                           CommandParameter="onlinesajt"/>
                 <MenuItem Header="OnlineIgra" Command="{Binding NavCommand}"
                           CommandParameter="onlineis"/>
+                <MenuItem Header="Prenos" Command="{Binding NavCommand}"
+                          CommandParameter="onlineps"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">

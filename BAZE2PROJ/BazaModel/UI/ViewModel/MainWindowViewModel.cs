@@ -15,6 +15,7 @@ namespace UI.ViewModel
         private PoslovnicaViewModel poslovnicaViewModel = new PoslovnicaViewModel();
         private OnlineSajtViewModel onlineSajtViewModel = new OnlineSajtViewModel();
         private OnlineISViewModel onlineISViewModel = new OnlineISViewModel();
+        private OnlinePrenosSPViewModel onlinePSViewModel = new OnlinePrenosSPViewModel();
         public MyICommand<string> NavCommand { get; private set; }
 
         public MainWindowViewModel()
@@ -52,6 +53,9 @@ namespace UI.ViewModel
                     break;
                 case "onlineis":
                     CurrentViewModel = onlineISViewModel;
+                    break;
+                case "onlineps":
+                    CurrentViewModel = onlinePSViewModel;
                     break;
                 case "tiket":
                     CurrentViewModel = tiketViewModel;
