@@ -23,6 +23,10 @@ namespace UI.Views
         public KlijentView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.KlijentViewModel();
         }
+
+
+        
     }
 }

@@ -67,6 +67,8 @@
     </ApplicationDefinition>
     <Compile Include="BindableNotify.cs" />
     <Compile Include="MyICommand.cs" />
+    <Compile Include="ValidationBase.cs" />
+    <Compile Include="ValidationErrors.cs" />
     <Compile Include="ViewModel\KlijentViewModel.cs" />
     <Compile Include="ViewModel\KompanijaViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

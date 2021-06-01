@@ -10,3 +10,15 @@ C:\Users\colak\Desktop\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.csproj.
 C:\Users\colak\Desktop\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.csproj.CopyComplete
 C:\Users\colak\Desktop\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.dll
 C:\Users\colak\Desktop\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.pdb
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\BazaModel.dll.config
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\BazaModel.dll
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\BazaModel.pdb
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\EntityFramework.dll
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\EntityFramework.xml
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.csprojAssemblyReference.cache
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.csproj.CoreCompileInputs.cache
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.csproj.CopyComplete
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.dll
+C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\obj\Debug\BazaModel.pdb
