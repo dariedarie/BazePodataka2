@@ -23,6 +23,7 @@ namespace UI.Views
         public OnlineSajtView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.OnlineSajtViewModel();
         }
     }
 }

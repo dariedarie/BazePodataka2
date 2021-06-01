@@ -13,6 +13,7 @@ namespace UI.ViewModel
         private KlijentViewModel klijentViewModel = new KlijentViewModel();
         private TiketViewModel tiketViewModel = new TiketViewModel();
         private PoslovnicaViewModel poslovnicaViewModel = new PoslovnicaViewModel();
+        private OnlineSajtViewModel onlineSajtViewModel = new OnlineSajtViewModel();
         public MyICommand<string> NavCommand { get; private set; }
 
         public MainWindowViewModel()
@@ -44,6 +45,9 @@ namespace UI.ViewModel
                     break;
                 case "poslovnica":
                     CurrentViewModel = poslovnicaViewModel;
+                    break;
+                case "onlinesajt":
+                    CurrentViewModel = onlineSajtViewModel;
                     break;
                 case "tiket":
                     CurrentViewModel = tiketViewModel;

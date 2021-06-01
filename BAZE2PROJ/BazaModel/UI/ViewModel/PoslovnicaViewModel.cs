@@ -187,7 +187,7 @@ namespace UI.ViewModel
             }
             if (string.IsNullOrWhiteSpace(this.Lokacija))
             {
-                this.ValidationErrors["Lokacija"] = "Adresa je obavezna";
+                this.ValidationErrors["Lokacija"] = "Lokacija je obavezna";
             }
 
         }
