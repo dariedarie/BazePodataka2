@@ -12,6 +12,9 @@
         <DataTemplate DataType="{x:Type viewModel:KlijentViewModel}">
             <views:KlijentView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:KompanijaViewModel}">
+            <views:KompanijaView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -21,10 +24,10 @@
 
         <DockPanel Grid.Row="0" Margin="5">
             <Menu  ToolTip="Meni" DockPanel.Dock="Top" FontStyle="Italic">
+                <MenuItem Header="Kompanija" Command="{Binding NavCommand}"
+                          CommandParameter="kmp"/>
                 <MenuItem Header="Klijent" Command="{Binding NavCommand}"
                           CommandParameter="klijent"/>
-                <MenuItem Header="NetworkDisplay" Command="{Binding NavCommand}"
-                          CommandParameter="display"/>
                 <MenuItem Header="Graph" Command="{Binding NavCommand}"
                           CommandParameter="graph"/>
             </Menu>

@@ -31,11 +31,13 @@ namespace UI.ViewModel
        
         public KlijentViewModel()
         {
+            SelectedKlijent = null;
             klijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
             AddCommand = new MyICommand(OnAdd);
             DeleteCommand = new MyICommand(OnDelete);
             ModifyCommand = new MyICommand(OnModify);
             OKCommand = new MyICommand(OnOKModify);
+            
         }
 
 
@@ -181,13 +183,26 @@ namespace UI.ViewModel
         {
             if (SelectedKlijent != null)
             {
-                var context = new KmpIgreDBModelContext();
-                Klijent k = context.Klijents.Where(x => x.IdKlijenta == SelectedKlijent.IdKlijenta).FirstOrDefault();                   
-                context.Klijents.Remove(k);
-                context.SaveChanges();
-                KlijentsTemp.Remove(k);
-                KlijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
+                if(SelectedKlijent.IdKlijenta != 0)
+                {
+                    var context = new KmpIgreDBModelContext();
+                    Klijent k = context.Klijents.Where(x => x.IdKlijenta == SelectedKlijent.IdKlijenta).FirstOrDefault();
+                    context.Klijents.Remove(k);
+                    context.SaveChanges();
+                    KlijentsTemp.Remove(k);
+                    KlijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
+                    SelectedKlijent = null; 
+
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
             }
+          
+
         }
 
 
@@ -195,11 +210,21 @@ namespace UI.ViewModel
         {
             if (SelectedKlijent != null)
             {
-                var context = new KmpIgreDBModelContext();
-                Klijent k = context.Klijents.Where(x => x.IdKlijenta == SelectedKlijent.IdKlijenta).FirstOrDefault();
-                ImeMKlijenta = SelectedKlijent.ImeKlijenta;
-                PrezMKlijenta = SelectedKlijent.PrezKlijenta;
+                if (SelectedKlijent.IdKlijenta != 0)
+                {
+                    var context = new KmpIgreDBModelContext();
+                    Klijent k = context.Klijents.Where(x => x.IdKlijenta == SelectedKlijent.IdKlijenta).FirstOrDefault();
+                    ImeMKlijenta = SelectedKlijent.ImeKlijenta;
+                    PrezMKlijenta = SelectedKlijent.PrezKlijenta;
+                   
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
             }
+            
         }
         public void OnOKModify()
         {
@@ -215,7 +240,8 @@ namespace UI.ViewModel
                 KlijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
                 ImeMKlijenta = "";
                 PrezMKlijenta = "";
-                
+                SelectedKlijent = null;
+
         }
 
 

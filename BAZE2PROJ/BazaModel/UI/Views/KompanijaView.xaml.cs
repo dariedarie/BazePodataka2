@@ -23,6 +23,7 @@ namespace UI.Views
         public KompanijaView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.KompanijaViewModel();
         }
     }
 }
