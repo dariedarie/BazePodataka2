@@ -12,7 +12,7 @@ namespace UI.ViewModel
 {
     public class KlijentViewModel:ValidationBase
     {
-        //public static ObservableCollection<Klijent> Klijenti = new ObservableCollection<Klijent>();
+        
         private ObservableCollection<Klijent> klijentsTemp = new ObservableCollection<Klijent>();
         private int id;
         private string imeKlijenta;
@@ -135,12 +135,8 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+           
+            
             
             if (string.IsNullOrWhiteSpace(this.ImeKlijenta))
             {
@@ -171,7 +167,7 @@ namespace UI.ViewModel
                 context.Klijents.Add(k);
                 context.SaveChanges();
                 KlijentsTemp.Add(k);
-                //KlijentsTemp.Clear();
+                
                 KlijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
                 ImeKlijenta = "";
                 PrezKlijenta = "";

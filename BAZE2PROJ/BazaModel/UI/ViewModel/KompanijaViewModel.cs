@@ -133,12 +133,8 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+           
+            
 
             if (string.IsNullOrWhiteSpace(this.NazKmp))
             {
@@ -166,7 +162,7 @@ namespace UI.ViewModel
                 context.KompanijaZaIgreNaSrecus.Add(k);
                 context.SaveChanges();
                 KmpsTemp.Add(k);
-                //KlijentsTemp.Clear();
+                
                 KmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>(new KmpIgreDBModelContext().KompanijaZaIgreNaSrecus.ToList());
                 NazKmp = "";
                 AdrKmp = "";

@@ -27,6 +27,9 @@
         <DataTemplate DataType="{x:Type viewModel:OnlinePrenosSPViewModel}">
             <views:OnlinePrenosSPView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:TiketViewModel}">
+            <views:TiketView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -48,6 +51,8 @@
                           CommandParameter="onlineis"/>
                 <MenuItem Header="Prenos" Command="{Binding NavCommand}"
                           CommandParameter="onlineps"/>
+                <MenuItem Header="Tiket" Command="{Binding NavCommand}"
+                          CommandParameter="tiket"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">
