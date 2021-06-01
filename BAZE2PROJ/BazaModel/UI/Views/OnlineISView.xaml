@@ -7,7 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="97,400,0,0" VerticalAlignment="Top" Width="110" Height="40" Command="{Binding AddCommand}"/>
+        <TextBox x:Name="textBoxNaziv" HorizontalAlignment="Left" Height="27" Margin="97,290,0,0" TextWrapping="Wrap" Text="{Binding NazIgre, Mode=TwoWay}" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.492,0.319"/>
+        <DataGrid  HorizontalAlignment="Left" Height="250"  VerticalAlignment="Top" Width="780"
+            ItemsSource="{Binding OnlineISTemp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+				BorderBrush="Black"
+				Background="White"
+				Foreground="Black"
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column"
+				SelectedItem="{Binding SelectedIS, UpdateSourceTrigger=PropertyChanged}" Margin="10,10,0,0">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding IdIgre}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding NazIgre}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kompanija" Width="*" Binding="{Binding OnlineSajtKompanijaZaIgreNaSrecuIdKmp}"></DataGridTextColumn>
+                <DataGridTextColumn Header="OnlineSajt" Width="*" Binding="{Binding OnlineSajtIdSajta}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[Naziv]}" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button Content="Obrisi selektovanog" HorizontalAlignment="Left" Margin="334,385,0,0" VerticalAlignment="Top" Width="112" Height="44" Command="{Binding DeleteCommand}"/>
+        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="582,413,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="609,290,0,0" TextWrapping="Wrap" Text="{Binding NazIgreM, UpdateSourceTrigger=PropertyChanged ,Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
+        <Label Content="NazivModify:" HorizontalAlignment="Left" Margin="497,285,0,0" VerticalAlignment="Top" Height="32" Width="92" />
+        <Button Content="OKModify" HorizontalAlignment="Left" Margin="715,413,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="622,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[NazivIM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <ComboBox HorizontalAlignment="Left" Margin="97,329,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Kompanije}" SelectedItem="{Binding Izbor, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Kompanije:" HorizontalAlignment="Left" Margin="0,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,0.404" Width="89"/>
+        <ComboBox HorizontalAlignment="Left" Margin="252,295,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Sajt}" SelectedItem="{Binding IzborO, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="OnlineSajt" HorizontalAlignment="Left" Margin="252,260,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
 
     </Grid>
 </UserControl>

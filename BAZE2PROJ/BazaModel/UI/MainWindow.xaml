@@ -21,6 +21,9 @@
         <DataTemplate DataType="{x:Type viewModel:OnlineSajtViewModel}">
             <views:OnlineSajtView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OnlineISViewModel}">
+            <views:OnlineISView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -38,6 +41,8 @@
                           CommandParameter="poslovnica"/>
                 <MenuItem Header="OnlineSajt" Command="{Binding NavCommand}"
                           CommandParameter="onlinesajt"/>
+                <MenuItem Header="OnlineIgra" Command="{Binding NavCommand}"
+                          CommandParameter="onlineis"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">

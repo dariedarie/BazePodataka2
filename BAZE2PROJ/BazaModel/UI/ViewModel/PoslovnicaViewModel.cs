@@ -253,7 +253,7 @@ namespace UI.ViewModel
                     Poslovnica k = context.Poslovnicas.Where(x => x.IdPosl == SelectedPosl.IdPosl).FirstOrDefault();
                     NazMPosl = SelectedPosl.NazPoslovnice;
                     LokacijaM = SelectedPosl.Lokacija;
-                    IzborM = SelectedPosl.KompanijaZaIgreNaSrecuIdKmp;
+                 
 
                 }
                 else
@@ -271,7 +271,6 @@ namespace UI.ViewModel
             Poslovnica k = context.Poslovnicas.Where(x => x.IdPosl == SelectedPosl.IdPosl).FirstOrDefault();
             k.NazPoslovnice = NazMPosl;
             k.Lokacija = LokacijaM;
-            //k.KompanijaZaIgreNaSrecuIdKmp = IzborM;
             context.Entry(k).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
             PoslsTemp.Remove(k);

@@ -23,6 +23,7 @@ namespace UI.Views
         public OnlineISView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.OnlineISViewModel();
         }
     }
 }

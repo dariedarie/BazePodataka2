@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\colak\Desktop\BAZE2PROJ\BazaModel\BazaModel\KmpIgreDBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\colak\Desktop\BazePodataka2\BAZE2PROJ\BazaModel\BazaModel\KmpIgreDBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

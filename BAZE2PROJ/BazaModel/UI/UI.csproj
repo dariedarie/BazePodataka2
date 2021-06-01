@@ -200,7 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BazaModel\BazaModel.csproj">
-      <Project>{F28CEBBC-12A9-4541-82A5-C3A6D0BB9AF4}</Project>
+      <Project>{f28cebbc-12a9-4541-82a5-c3a6d0bb9af4}</Project>
       <Name>BazaModel</Name>
     </ProjectReference>
   </ItemGroup>
