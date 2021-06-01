@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KmpIgreDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KmpIgreDBModelStoreContainer">
+    <EntitySet Name="KompanijaZaIgreNaSrecus" EntityType="KmpIgreDBModel.Store.KompanijaZaIgreNaSrecus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Poslovnicas" EntityType="KmpIgreDBModel.Store.Poslovnicas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks" EntityType="KmpIgreDBModel.Store.Radniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OnlineSajts" EntityType="KmpIgreDBModel.Store.OnlineSajts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrenosSportskogDogadjajas" EntityType="KmpIgreDBModel.Store.PrenosSportskogDogadjajas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OnlineIgraNaSrecus" EntityType="KmpIgreDBModel.Store.OnlineIgraNaSrecus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Klijents" EntityType="KmpIgreDBModel.Store.Klijents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gledas" EntityType="KmpIgreDBModel.Store.Gledas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Igras" EntityType="KmpIgreDBModel.Store.Igras" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tikets" EntityType="KmpIgreDBModel.Store.Tikets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stampas" EntityType="KmpIgreDBModel.Store.Stampas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_OperaterNaUplatnomMestu" EntityType="KmpIgreDBModel.Store.Radniks_OperaterNaUplatnomMestu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_RadnikObezbedjenja" EntityType="KmpIgreDBModel.Store.Radniks_RadnikObezbedjenja" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_OperaterUSlotSali" EntityType="KmpIgreDBModel.Store.Radniks_OperaterUSlotSali" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="KompanijaZaIgreNaSrecuPoslovnica" Association="KmpIgreDBModel.Store.KompanijaZaIgreNaSrecuPoslovnica">
+      <End Role="KompanijaZaIgreNaSrecu" EntitySet="KompanijaZaIgreNaSrecus" />
+      <End Role="Poslovnica" EntitySet="Poslovnicas" />
+    </AssociationSet>
+    <AssociationSet Name="RadnikPoslovnica" Association="KmpIgreDBModel.Store.RadnikPoslovnica">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Poslovnica" EntitySet="Poslovnicas" />
+    </AssociationSet>
+    <AssociationSet Name="KompanijaZaIgreNaSrecuOnlineSajt" Association="KmpIgreDBModel.Store.KompanijaZaIgreNaSrecuOnlineSajt">
+      <End Role="KompanijaZaIgreNaSrecu" EntitySet="KompanijaZaIgreNaSrecus" />
+      <End Role="OnlineSajt" EntitySet="OnlineSajts" />
+    </AssociationSet>
+    <AssociationSet Name="OnlineSajtPrenosSportskogDogadjaja" Association="KmpIgreDBModel.Store.OnlineSajtPrenosSportskogDogadjaja">
+      <End Role="OnlineSajt" EntitySet="OnlineSajts" />
+      <End Role="PrenosSportskogDogadjaja" EntitySet="PrenosSportskogDogadjajas" />
+    </AssociationSet>
+    <AssociationSet Name="OnlineSajtOnlineIgraNaSrecu" Association="KmpIgreDBModel.Store.OnlineSajtOnlineIgraNaSrecu">
+      <End Role="OnlineSajt" EntitySet="OnlineSajts" />
+      <End Role="OnlineIgraNaSrecu" EntitySet="OnlineIgraNaSrecus" />
+    </AssociationSet>
+    <AssociationSet Name="PrenosSportskogDogadjajaGleda" Association="KmpIgreDBModel.Store.PrenosSportskogDogadjajaGleda">
+      <End Role="PrenosSportskogDogadjaja" EntitySet="PrenosSportskogDogadjajas" />
+      <End Role="Gleda" EntitySet="Gledas" />
+    </AssociationSet>
+    <AssociationSet Name="GledaKlijent" Association="KmpIgreDBModel.Store.GledaKlijent">
+      <End Role="Gleda" EntitySet="Gledas" />
+      <End Role="Klijent" EntitySet="Klijents" />
+    </AssociationSet>
+    <AssociationSet Name="OnlineIgraNaSrecuIgra" Association="KmpIgreDBModel.Store.OnlineIgraNaSrecuIgra">
+      <End Role="OnlineIgraNaSrecu" EntitySet="OnlineIgraNaSrecus" />
+      <End Role="Igra" EntitySet="Igras" />
+    </AssociationSet>
+    <AssociationSet Name="KlijentIgra" Association="KmpIgreDBModel.Store.KlijentIgra">
+      <End Role="Klijent" EntitySet="Klijents" />
+      <End Role="Igra" EntitySet="Igras" />
+    </AssociationSet>
+    <AssociationSet Name="KlijentTiket" Association="KmpIgreDBModel.Store.KlijentTiket">
+      <End Role="Klijent" EntitySet="Klijents" />
+      <End Role="Tiket" EntitySet="Tikets" />
+    </AssociationSet>
+    <AssociationSet Name="OperaterNaUplatnomMestuStampa" Association="KmpIgreDBModel.Store.OperaterNaUplatnomMestuStampa">
+      <End Role="OperaterNaUplatnomMestu" EntitySet="Radniks_OperaterNaUplatnomMestu" />
+      <End Role="Stampa" EntitySet="Stampas" />
+    </AssociationSet>
+    <AssociationSet Name="TiketStampa" Association="KmpIgreDBModel.Store.TiketStampa">
+      <End Role="Tiket" EntitySet="Tikets" />
+      <End Role="Stampa" EntitySet="Stampas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperaterNaUplatnomMestu_inherits_Radnik" Association="KmpIgreDBModel.Store.FK_OperaterNaUplatnomMestu_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="OperaterNaUplatnomMestu" EntitySet="Radniks_OperaterNaUplatnomMestu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RadnikObezbedjenja_inherits_Radnik" Association="KmpIgreDBModel.Store.FK_RadnikObezbedjenja_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="RadnikObezbedjenja" EntitySet="Radniks_RadnikObezbedjenja" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperaterUSlotSali_inherits_Radnik" Association="KmpIgreDBModel.Store.FK_OperaterUSlotSali_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="OperaterUSlotSali" EntitySet="Radniks_OperaterUSlotSali" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="KompanijaZaIgreNaSrecus">
+    <Key>
+      <PropertyRef Name="IdKmp" />
+    </Key>
+    <Property Name="IdKmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazKmp" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdrKmp" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Poslovnicas">
+    <Key>
+      <PropertyRef Name="IdPosl" />
+      <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+    </Key>
+    <Property Name="IdPosl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lokacija" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KompanijaZaIgreNaSrecuIdKmp" Type="int" Nullable="false" />
+    <Property Name="NazPoslovnice" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImeRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrezRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PoslovnicaIdPosl" Type="int" Nullable="false" />
+    <Property Name="PoslovnicaKompanijaZaIgreNaSrecuIdKmp" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineSajts">
+    <Key>
+      <PropertyRef Name="IdSajta" />
+      <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+    </Key>
+    <Property Name="IdSajta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Domen" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KompanijaZaIgreNaSrecuIdKmp" Type="int" Nullable="false" />
+    <Property Name="NazSajta" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrenosSportskogDogadjajas">
+    <Key>
+      <PropertyRef Name="SifraDogadjaja" />
+    </Key>
+    <Property Name="SifraDogadjaja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipDogadjaja" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnlineSajtIdSajta" Type="int" Nullable="false" />
+    <Property Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineIgraNaSrecus">
+    <Key>
+      <PropertyRef Name="IdIgre" />
+    </Key>
+    <Property Name="IdIgre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OnlineSajtIdSajta" Type="int" Nullable="false" />
+    <Property Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" Type="int" Nullable="false" />
+    <Property Name="NazIgre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Klijents">
+    <Key>
+      <PropertyRef Name="IdKlijenta" />
+    </Key>
+    <Property Name="IdKlijenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImeKlijenta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrezKlijenta" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gledas">
+    <Key>
+      <PropertyRef Name="PrenosSportskogDogadjajaSifraDogadjaja" />
+      <PropertyRef Name="KlijentIdKlijenta" />
+    </Key>
+    <Property Name="PrenosSportskogDogadjajaSifraDogadjaja" Type="int" Nullable="false" />
+    <Property Name="KlijentIdKlijenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Igras">
+    <Key>
+      <PropertyRef Name="KlijentIdKlijenta" />
+      <PropertyRef Name="OnlineIgraNaSrecuIdIgre" />
+    </Key>
+    <Property Name="OnlineIgraNaSrecuIdIgre" Type="int" Nullable="false" />
+    <Property Name="KlijentIdKlijenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tikets">
+    <Key>
+      <PropertyRef Name="SifraTiket" />
+    </Key>
+    <Property Name="SifraTiket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrParova" Type="int" Nullable="false" />
+    <Property Name="KlijentIdKlijenta" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Stampas">
+    <Key>
+      <PropertyRef Name="OperaterNaUplatnomMestuIdRad" />
+      <PropertyRef Name="TiketSifraTiket" />
+    </Key>
+    <Property Name="OperaterNaUplatnomMestuIdRad" Type="int" Nullable="false" />
+    <Property Name="TiketSifraTiket" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_OperaterNaUplatnomMestu">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_RadnikObezbedjenja">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="Vestine" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_OperaterUSlotSali">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="Plata" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="KompanijaZaIgreNaSrecuPoslovnica">
+    <End Role="KompanijaZaIgreNaSrecu" Type="KmpIgreDBModel.Store.KompanijaZaIgreNaSrecus" Multiplicity="1" />
+    <End Role="Poslovnica" Type="KmpIgreDBModel.Store.Poslovnicas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KompanijaZaIgreNaSrecu">
+        <PropertyRef Name="IdKmp" />
+      </Principal>
+      <Dependent Role="Poslovnica">
+        <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RadnikPoslovnica">
+    <End Role="Radnik" Type="KmpIgreDBModel.Store.Radniks" Multiplicity="*" />
+    <End Role="Poslovnica" Type="KmpIgreDBModel.Store.Poslovnicas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Poslovnica">
+        <PropertyRef Name="IdPosl" />
+        <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+      </Principal>
+      <Dependent Role="Radnik">
+        <PropertyRef Name="PoslovnicaIdPosl" />
+        <PropertyRef Name="PoslovnicaKompanijaZaIgreNaSrecuIdKmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KompanijaZaIgreNaSrecuOnlineSajt">
+    <End Role="KompanijaZaIgreNaSrecu" Type="KmpIgreDBModel.Store.KompanijaZaIgreNaSrecus" Multiplicity="1" />
+    <End Role="OnlineSajt" Type="KmpIgreDBModel.Store.OnlineSajts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KompanijaZaIgreNaSrecu">
+        <PropertyRef Name="IdKmp" />
+      </Principal>
+      <Dependent Role="OnlineSajt">
+        <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OnlineSajtPrenosSportskogDogadjaja">
+    <End Role="OnlineSajt" Type="KmpIgreDBModel.Store.OnlineSajts" Multiplicity="1" />
+    <End Role="PrenosSportskogDogadjaja" Type="KmpIgreDBModel.Store.PrenosSportskogDogadjajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OnlineSajt">
+        <PropertyRef Name="IdSajta" />
+        <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+      </Principal>
+      <Dependent Role="PrenosSportskogDogadjaja">
+        <PropertyRef Name="OnlineSajtIdSajta" />
+        <PropertyRef Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OnlineSajtOnlineIgraNaSrecu">
+    <End Role="OnlineSajt" Type="KmpIgreDBModel.Store.OnlineSajts" Multiplicity="1" />
+    <End Role="OnlineIgraNaSrecu" Type="KmpIgreDBModel.Store.OnlineIgraNaSrecus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OnlineSajt">
+        <PropertyRef Name="IdSajta" />
+        <PropertyRef Name="KompanijaZaIgreNaSrecuIdKmp" />
+      </Principal>
+      <Dependent Role="OnlineIgraNaSrecu">
+        <PropertyRef Name="OnlineSajtIdSajta" />
+        <PropertyRef Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenosSportskogDogadjajaGleda">
+    <End Role="PrenosSportskogDogadjaja" Type="KmpIgreDBModel.Store.PrenosSportskogDogadjajas" Multiplicity="1" />
+    <End Role="Gleda" Type="KmpIgreDBModel.Store.Gledas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrenosSportskogDogadjaja">
+        <PropertyRef Name="SifraDogadjaja" />
+      </Principal>
+      <Dependent Role="Gleda">
+        <PropertyRef Name="PrenosSportskogDogadjajaSifraDogadjaja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GledaKlijent">
+    <End Role="Gleda" Type="KmpIgreDBModel.Store.Gledas" Multiplicity="*" />
+    <End Role="Klijent" Type="KmpIgreDBModel.Store.Klijents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Klijent">
+        <PropertyRef Name="IdKlijenta" />
+      </Principal>
+      <Dependent Role="Gleda">
+        <PropertyRef Name="KlijentIdKlijenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OnlineIgraNaSrecuIgra">
+    <End Role="OnlineIgraNaSrecu" Type="KmpIgreDBModel.Store.OnlineIgraNaSrecus" Multiplicity="1" />
+    <End Role="Igra" Type="KmpIgreDBModel.Store.Igras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OnlineIgraNaSrecu">
+        <PropertyRef Name="IdIgre" />
+      </Principal>
+      <Dependent Role="Igra">
+        <PropertyRef Name="OnlineIgraNaSrecuIdIgre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KlijentIgra">
+    <End Role="Klijent" Type="KmpIgreDBModel.Store.Klijents" Multiplicity="1" />
+    <End Role="Igra" Type="KmpIgreDBModel.Store.Igras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klijent">
+        <PropertyRef Name="IdKlijenta" />
+      </Principal>
+      <Dependent Role="Igra">
+        <PropertyRef Name="KlijentIdKlijenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KlijentTiket">
+    <End Role="Klijent" Type="KmpIgreDBModel.Store.Klijents" Multiplicity="0..1" />
+    <End Role="Tiket" Type="KmpIgreDBModel.Store.Tikets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klijent">
+        <PropertyRef Name="IdKlijenta" />
+      </Principal>
+      <Dependent Role="Tiket">
+        <PropertyRef Name="KlijentIdKlijenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OperaterNaUplatnomMestuStampa">
+    <End Role="OperaterNaUplatnomMestu" Type="KmpIgreDBModel.Store.Radniks_OperaterNaUplatnomMestu" Multiplicity="1" />
+    <End Role="Stampa" Type="KmpIgreDBModel.Store.Stampas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperaterNaUplatnomMestu">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Stampa">
+        <PropertyRef Name="OperaterNaUplatnomMestuIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TiketStampa">
+    <End Role="Tiket" Type="KmpIgreDBModel.Store.Tikets" Multiplicity="1" />
+    <End Role="Stampa" Type="KmpIgreDBModel.Store.Stampas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tiket">
+        <PropertyRef Name="SifraTiket" />
+      </Principal>
+      <Dependent Role="Stampa">
+        <PropertyRef Name="TiketSifraTiket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperaterNaUplatnomMestu_inherits_Radnik">
+    <End Role="Radnik" Type="KmpIgreDBModel.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OperaterNaUplatnomMestu" Type="KmpIgreDBModel.Store.Radniks_OperaterNaUplatnomMestu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="OperaterNaUplatnomMestu">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RadnikObezbedjenja_inherits_Radnik">
+    <End Role="Radnik" Type="KmpIgreDBModel.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RadnikObezbedjenja" Type="KmpIgreDBModel.Store.Radniks_RadnikObezbedjenja" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="RadnikObezbedjenja">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperaterUSlotSali_inherits_Radnik">
+    <End Role="Radnik" Type="KmpIgreDBModel.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OperaterUSlotSali" Type="KmpIgreDBModel.Store.Radniks_OperaterUSlotSali" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="OperaterUSlotSali">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

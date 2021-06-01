@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F28CEBBC-12A9-4541-82A5-C3A6D0BB9AF4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BazaModel</RootNamespace>
+    <AssemblyName>BazaModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Gleda.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Igra.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Klijent.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KmpIgreDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KmpIgreDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KmpIgreDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KmpIgreDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KmpIgreDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="KompanijaZaIgreNaSrecu.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineIgraNaSrecu.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineSajt.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperaterNaUplatnomMestu.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperaterUSlotSali.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Poslovnica.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrenosSportskogDogadjaja.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Radnik.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RadnikObezbedjenja.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stampa.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tiket.cs">
+      <DependentUpon>KmpIgreDBModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="KmpIgreDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KmpIgreDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="KmpIgreDBModel.edmx.diagram">
+      <DependentUpon>KmpIgreDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KmpIgreDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KmpIgreDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>KmpIgreDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="KmpIgreDBModel.edmx.sql" />
+    <Content Include="KmpIgreDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KmpIgreDBModel.cs</LastGenOutput>
+      <DependentUpon>KmpIgreDBModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

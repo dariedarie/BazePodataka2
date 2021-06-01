@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ed6a8dc9aa64ae891b89f8591dd460f" Name="Diagram1" ZoomLevel="77" >
+        <EntityTypeShape EntityType="KmpIgreDBModel.KompanijaZaIgreNaSrecu" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Poslovnica" Width="2" PointX="2.75" PointY="2.25" />
+        <AssociationConnector Association="KmpIgreDBModel.KompanijaZaIgreNaSrecuPoslovnica" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Radnik" Width="1.875" PointX="1.625" PointY="4.75" />
+        <AssociationConnector Association="KmpIgreDBModel.RadnikPoslovnica" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.RadnikObezbedjenja" Width="1.5" PointX="0.5" PointY="8.375" />
+        <InheritanceConnector EntityType="KmpIgreDBModel.RadnikObezbedjenja" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.OperaterUSlotSali" Width="1.5" PointX="2.625" PointY="8.125" />
+        <InheritanceConnector EntityType="KmpIgreDBModel.OperaterUSlotSali" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.OperaterNaUplatnomMestu" Width="1.5" PointX="4.75" PointY="7.125" />
+        <InheritanceConnector EntityType="KmpIgreDBModel.OperaterNaUplatnomMestu" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.OnlineSajt" Width="2.125" PointX="5.25" PointY="0.5" />
+        <AssociationConnector Association="KmpIgreDBModel.KompanijaZaIgreNaSrecuOnlineSajt" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.PrenosSportskogDogadjaja" Width="1.5" PointX="5.75" PointY="4" />
+        <AssociationConnector Association="KmpIgreDBModel.OnlineSajtPrenosSportskogDogadjaja" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.OnlineIgraNaSrecu" Width="1.5" PointX="10.25" PointY="0.75" />
+        <AssociationConnector Association="KmpIgreDBModel.OnlineSajtOnlineIgraNaSrecu" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Klijent" Width="1.5" PointX="10.75" PointY="5.25" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Gleda" Width="1.5" PointX="8.25" PointY="3.875" />
+        <AssociationConnector Association="KmpIgreDBModel.PrenosSportskogDogadjajaGleda" />
+        <AssociationConnector Association="KmpIgreDBModel.GledaKlijent" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Igra" Width="2.125" PointX="12.875" PointY="2.875" />
+        <AssociationConnector Association="KmpIgreDBModel.OnlineIgraNaSrecuIgra" />
+        <AssociationConnector Association="KmpIgreDBModel.KlijentIgra" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Tiket" Width="1.5" PointX="11.25" PointY="9.625" />
+        <AssociationConnector Association="KmpIgreDBModel.KlijentTiket" />
+        <EntityTypeShape EntityType="KmpIgreDBModel.Stampa" Width="1.5" PointX="7.75" PointY="8.5" />
+        <AssociationConnector Association="KmpIgreDBModel.OperaterNaUplatnomMestuStampa" />
+        <AssociationConnector Association="KmpIgreDBModel.TiketStampa" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

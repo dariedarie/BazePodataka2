@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KmpIgreDBModelStoreContainer" CdmEntityContainer="KmpIgreDBModelContext">
+    <EntitySetMapping Name="KompanijaZaIgreNaSrecus">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.KompanijaZaIgreNaSrecu)">
+        <MappingFragment StoreEntitySet="KompanijaZaIgreNaSrecus">
+          <ScalarProperty Name="IdKmp" ColumnName="IdKmp" />
+          <ScalarProperty Name="NazKmp" ColumnName="NazKmp" />
+          <ScalarProperty Name="AdrKmp" ColumnName="AdrKmp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poslovnicas">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Poslovnica)">
+        <MappingFragment StoreEntitySet="Poslovnicas">
+          <ScalarProperty Name="IdPosl" ColumnName="IdPosl" />
+          <ScalarProperty Name="KompanijaZaIgreNaSrecuIdKmp" ColumnName="KompanijaZaIgreNaSrecuIdKmp" />
+          <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+          <ScalarProperty Name="NazPoslovnice" ColumnName="NazPoslovnice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="ImeRad" ColumnName="ImeRad" />
+          <ScalarProperty Name="PrezRad" ColumnName="PrezRad" />
+          <ScalarProperty Name="TipRad" ColumnName="TipRad" />
+          <ScalarProperty Name="PoslovnicaIdPosl" ColumnName="PoslovnicaIdPosl" />
+          <ScalarProperty Name="PoslovnicaKompanijaZaIgreNaSrecuIdKmp" ColumnName="PoslovnicaKompanijaZaIgreNaSrecuIdKmp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.OperaterNaUplatnomMestu)">
+        <MappingFragment StoreEntitySet="Radniks_OperaterNaUplatnomMestu">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.RadnikObezbedjenja)">
+        <MappingFragment StoreEntitySet="Radniks_RadnikObezbedjenja">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="Vestine" ColumnName="Vestine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.OperaterUSlotSali)">
+        <MappingFragment StoreEntitySet="Radniks_OperaterUSlotSali">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="Plata" ColumnName="Plata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineSajts">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.OnlineSajt)">
+        <MappingFragment StoreEntitySet="OnlineSajts">
+          <ScalarProperty Name="IdSajta" ColumnName="IdSajta" />
+          <ScalarProperty Name="KompanijaZaIgreNaSrecuIdKmp" ColumnName="KompanijaZaIgreNaSrecuIdKmp" />
+          <ScalarProperty Name="Domen" ColumnName="Domen" />
+          <ScalarProperty Name="NazSajta" ColumnName="NazSajta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrenosSportskogDogadjajas">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.PrenosSportskogDogadjaja)">
+        <MappingFragment StoreEntitySet="PrenosSportskogDogadjajas">
+          <ScalarProperty Name="SifraDogadjaja" ColumnName="SifraDogadjaja" />
+          <ScalarProperty Name="tipDogadjaja" ColumnName="tipDogadjaja" />
+          <ScalarProperty Name="OnlineSajtIdSajta" ColumnName="OnlineSajtIdSajta" />
+          <ScalarProperty Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" ColumnName="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineIgraNaSrecus">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.OnlineIgraNaSrecu)">
+        <MappingFragment StoreEntitySet="OnlineIgraNaSrecus">
+          <ScalarProperty Name="IdIgre" ColumnName="IdIgre" />
+          <ScalarProperty Name="OnlineSajtIdSajta" ColumnName="OnlineSajtIdSajta" />
+          <ScalarProperty Name="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" ColumnName="OnlineSajtKompanijaZaIgreNaSrecuIdKmp" />
+          <ScalarProperty Name="NazIgre" ColumnName="NazIgre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klijents">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Klijent)">
+        <MappingFragment StoreEntitySet="Klijents">
+          <ScalarProperty Name="IdKlijenta" ColumnName="IdKlijenta" />
+          <ScalarProperty Name="ImeKlijenta" ColumnName="ImeKlijenta" />
+          <ScalarProperty Name="PrezKlijenta" ColumnName="PrezKlijenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gledas">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Gleda)">
+        <MappingFragment StoreEntitySet="Gledas">
+          <ScalarProperty Name="PrenosSportskogDogadjajaSifraDogadjaja" ColumnName="PrenosSportskogDogadjajaSifraDogadjaja" />
+          <ScalarProperty Name="KlijentIdKlijenta" ColumnName="KlijentIdKlijenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Igras">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Igra)">
+        <MappingFragment StoreEntitySet="Igras">
+          <ScalarProperty Name="KlijentIdKlijenta" ColumnName="KlijentIdKlijenta" />
+          <ScalarProperty Name="OnlineIgraNaSrecuIdIgre" ColumnName="OnlineIgraNaSrecuIdIgre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tikets">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Tiket)">
+        <MappingFragment StoreEntitySet="Tikets">
+          <ScalarProperty Name="SifraTiket" ColumnName="SifraTiket" />
+          <ScalarProperty Name="BrParova" ColumnName="BrParova" />
+          <ScalarProperty Name="KlijentIdKlijenta" ColumnName="KlijentIdKlijenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stampas">
+      <EntityTypeMapping TypeName="IsTypeOf(KmpIgreDBModel.Stampa)">
+        <MappingFragment StoreEntitySet="Stampas">
+          <ScalarProperty Name="OperaterNaUplatnomMestuIdRad" ColumnName="OperaterNaUplatnomMestuIdRad" />
+          <ScalarProperty Name="TiketSifraTiket" ColumnName="TiketSifraTiket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
