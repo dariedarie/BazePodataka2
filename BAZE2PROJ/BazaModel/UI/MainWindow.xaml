@@ -30,6 +30,9 @@
         <DataTemplate DataType="{x:Type viewModel:TiketViewModel}">
             <views:TiketView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:RadnikViewModel}">
+            <views:RadnikView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Background="Yellow">
         <Grid.RowDefinitions>
@@ -53,6 +56,8 @@
                           CommandParameter="onlineps"/>
                 <MenuItem Header="Tiket" Command="{Binding NavCommand}"
                           CommandParameter="tiket"/>
+                <MenuItem Header="Radnik" Command="{Binding NavCommand}"
+                          CommandParameter="radnik"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">

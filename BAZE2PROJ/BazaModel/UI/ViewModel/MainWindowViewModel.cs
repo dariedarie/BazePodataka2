@@ -11,6 +11,7 @@ namespace UI.ViewModel
         private BindableNotify currentViewModel;
         private KompanijaViewModel kompanijaViewModel = new KompanijaViewModel();
         private KlijentViewModel klijentViewModel = new KlijentViewModel();
+        private RadnikViewModel radnikViewModel = new RadnikViewModel();
         private TiketViewModel tiketViewModel = new TiketViewModel();
         private PoslovnicaViewModel poslovnicaViewModel = new PoslovnicaViewModel();
         private OnlineSajtViewModel onlineSajtViewModel = new OnlineSajtViewModel();
@@ -59,6 +60,9 @@ namespace UI.ViewModel
                     break;
                 case "tiket":
                     CurrentViewModel = tiketViewModel;
+                    break;
+                case "radnik":
+                    CurrentViewModel = radnikViewModel;
                     break;
 
 

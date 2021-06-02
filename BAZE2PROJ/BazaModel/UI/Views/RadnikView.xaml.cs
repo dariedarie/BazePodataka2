@@ -23,6 +23,7 @@ namespace UI.Views
         public RadnikView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.RadnikViewModel();
         }
     }
 }
