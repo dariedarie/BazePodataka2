@@ -165,12 +165,7 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+            
 
             if (string.IsNullOrWhiteSpace(this.NazSajta))
             {
@@ -199,7 +194,7 @@ namespace UI.ViewModel
                 context.OnlineSajts.Add(p);
                 context.SaveChanges();
                 OnlineSajtTemp.Add(p);
-                //KlijentsTemp.Clear();
+                
                 OnlineSajtTemp = new ObservableCollection<OnlineSajt>(new KmpIgreDBModelContext().OnlineSajts.ToList());
                 NazSajta = "";
                 Domen = "";
@@ -229,6 +224,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -253,23 +253,35 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedSajt != null)
+            {
+                var context = new KmpIgreDBModelContext();
+                OnlineSajt k = context.OnlineSajts.Where(x => x.IdSajta == SelectedSajt.IdSajta).FirstOrDefault();
+                k.NazSajta = NazSajtaM;
+                k.Domen = DomenM;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                OnlineSajtTemp.Remove(k);
+                OnlineSajtTemp.Add(k);
+                OnlineSajtTemp = new ObservableCollection<OnlineSajt>(new KmpIgreDBModelContext().OnlineSajts.ToList());
+                NazSajtaM = "";
+                DomenM = "";
+                SelectedSajt = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            var context = new KmpIgreDBModelContext();
-            OnlineSajt k = context.OnlineSajts.Where(x => x.IdSajta == SelectedSajt.IdSajta).FirstOrDefault();
-            k.NazSajta = NazSajtaM;
-            k.Domen = DomenM;
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            OnlineSajtTemp.Remove(k);
-            OnlineSajtTemp.Add(k);
-            OnlineSajtTemp = new ObservableCollection<OnlineSajt>(new KmpIgreDBModelContext().OnlineSajts.ToList());
-            NazSajtaM = "";
-            DomenM = "";
-            SelectedSajt = null;
+            }
 
         }
     }

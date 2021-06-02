@@ -197,7 +197,12 @@ namespace UI.ViewModel
                 }
 
             }
-          
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
 
         }
 
@@ -220,11 +225,17 @@ namespace UI.ViewModel
 
                 }
             }
-            
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
         }
         public void OnOKModify()
         {
-           
+            if (SelectedKlijent != null)
+            {
                 var context = new KmpIgreDBModelContext();
                 Klijent k = context.Klijents.Where(x => x.IdKlijenta == SelectedKlijent.IdKlijenta).FirstOrDefault();
                 k.ImeKlijenta = ImeMKlijenta;
@@ -237,6 +248,12 @@ namespace UI.ViewModel
                 ImeMKlijenta = "";
                 PrezMKlijenta = "";
                 SelectedKlijent = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 

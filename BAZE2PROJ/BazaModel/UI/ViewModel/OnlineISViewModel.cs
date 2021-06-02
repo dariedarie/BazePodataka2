@@ -169,12 +169,7 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+           
 
             if (string.IsNullOrWhiteSpace(this.NazIgre))
             {
@@ -228,6 +223,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -253,22 +253,34 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedIS != null)
+            {
+                var context = new KmpIgreDBModelContext();
+                OnlineIgraNaSrecu k = context.OnlineIgraNaSrecus.Where(x => x.IdIgre == SelectedIS.IdIgre).FirstOrDefault();
+                k.NazIgre = NazIgreM;
 
-            var context = new KmpIgreDBModelContext();
-            OnlineIgraNaSrecu k = context.OnlineIgraNaSrecus.Where(x => x.IdIgre == SelectedIS.IdIgre).FirstOrDefault();
-            k.NazIgre = NazIgreM;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                OnlineISTemp.Remove(k);
+                OnlineISTemp.Add(k);
+                OnlineISTemp = new ObservableCollection<OnlineIgraNaSrecu>(new KmpIgreDBModelContext().OnlineIgraNaSrecus.ToList());
+                NazIgreM = "";
+                SelectedIS = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            OnlineISTemp.Remove(k);
-            OnlineISTemp.Add(k);
-            OnlineISTemp = new ObservableCollection<OnlineIgraNaSrecu>(new KmpIgreDBModelContext().OnlineIgraNaSrecus.ToList());
-            NazIgreM = "";
-            SelectedIS = null;
+            }
 
         }
     }

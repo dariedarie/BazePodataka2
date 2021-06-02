@@ -23,6 +23,7 @@ namespace UI.Views
         public TiketView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.TiketViewModel();
         }
     }
 }

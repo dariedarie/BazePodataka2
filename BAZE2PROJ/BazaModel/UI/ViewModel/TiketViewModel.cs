@@ -9,9 +9,10 @@ using System.Windows;
 
 namespace UI.ViewModel
 {
-    public class TiketViewModel:ValidationBase
+    public class TiketViewModel : ValidationBase
     {
         private ObservableCollection<Tiket> tiketTemp = new ObservableCollection<Tiket>();
+        private ObservableCollection<Klijent> klijentsTemp = new ObservableCollection<Klijent>();
         private MyICommand addCommand;
         private MyICommand deleteCommand;
         private MyICommand modifyCommand;
@@ -19,16 +20,50 @@ namespace UI.ViewModel
         private Tiket selectedTiket = new Tiket();
         private int brParova;
         private int brParovaM;
+        private int izbor;
+        private List<int> klijenti = new List<int>();
 
         public TiketViewModel()
         {
             SelectedTiket = null;
             tiketTemp = new ObservableCollection<Tiket>(new KmpIgreDBModelContext().Tikets.ToList());
+            klijentsTemp = new ObservableCollection<Klijent>(new KmpIgreDBModelContext().Klijents.ToList());
+            foreach (var item in klijentsTemp)
+            {
+                klijenti.Add(item.IdKlijenta);
+            }
             AddCommand = new MyICommand(OnAdd);
             DeleteCommand = new MyICommand(OnDelete);
             ModifyCommand = new MyICommand(OnModify);
             OKCommand = new MyICommand(OnOKModify);
 
+        }
+
+        public int Izbor
+        {
+            get { return izbor; }
+            set
+            {
+                if (izbor != value)
+                {
+                    izbor = value;
+                    OnPropertyChanged("Izbor");
+                }
+            }
+        }
+
+
+        public List<int> Klijenti
+        {
+            get { return klijenti; }
+            set
+            {
+                if (this.klijenti != value)
+                {
+                    this.klijenti = value;
+                    OnPropertyChanged("Klijenti");
+                }
+            }
         }
 
         public Tiket SelectedTiket
@@ -119,13 +154,14 @@ namespace UI.ViewModel
                 var context = new KmpIgreDBModelContext();
                 Tiket k = new Tiket();
                 k.BrParova = BrParova;
+                k.KlijentIdKlijenta = Izbor;
                 context.Tikets.Add(k);
                 context.SaveChanges();
                 TiketTemp.Add(k);
 
                 TiketTemp = new ObservableCollection<Tiket>(new KmpIgreDBModelContext().Tikets.ToList());
                 BrParova = 0;
-                
+
             }
         }
 
@@ -152,6 +188,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -166,7 +207,7 @@ namespace UI.ViewModel
                     var context = new KmpIgreDBModelContext();
                     Tiket k = context.Tikets.Where(x => x.SifraTiket == SelectedTiket.SifraTiket).FirstOrDefault();
                     BrParovaM = SelectedTiket.BrParova;
-                    
+
 
                 }
                 else
@@ -175,23 +216,38 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedTiket != null)
+            {
+                var context = new KmpIgreDBModelContext();
+                Tiket k = context.Tikets.Where(x => x.SifraTiket == SelectedTiket.SifraTiket).FirstOrDefault();
+                k.BrParova = BrParovaM;
 
-            var context = new KmpIgreDBModelContext();
-            Tiket k = context.Tikets.Where(x => x.SifraTiket == SelectedTiket.SifraTiket).FirstOrDefault();
-            k.BrParova = BrParovaM;
-           
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            TiketTemp.Remove(k);
-            TiketTemp.Add(k);
-            TiketTemp = new ObservableCollection<Tiket>(new KmpIgreDBModelContext().Tikets.ToList());
-            BrParova = 0;
-           
-            SelectedTiket = null;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                TiketTemp.Remove(k);
+                TiketTemp.Add(k);
+                TiketTemp = new ObservableCollection<Tiket>(new KmpIgreDBModelContext().Tikets.ToList());
+                BrParova = 0;
+
+                SelectedTiket = null;
+            }
+
+            else
+            {
+
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
+
 
         }
     }

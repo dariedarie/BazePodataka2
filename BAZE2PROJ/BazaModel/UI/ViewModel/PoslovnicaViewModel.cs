@@ -22,7 +22,7 @@ namespace UI.ViewModel
         private MyICommand modifyCommand;
         private MyICommand oKCommand;
         private Poslovnica selectedPosl = new Poslovnica();
-        private List<int> kompanije = new List<int>();
+        private List<int> kompanijeP = new List<int>();
         private int izbor;
         private int izborM;
 
@@ -33,7 +33,7 @@ namespace UI.ViewModel
             kmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>(new KmpIgreDBModelContext().KompanijaZaIgreNaSrecus.ToList());
             foreach (var item in kmpsTemp)
             {
-                kompanije.Add(item.IdKmp);
+                KompanijeP.Add(item.IdKmp);
             }
             AddCommand = new MyICommand(OnAdd);
             DeleteCommand = new MyICommand(OnDelete);
@@ -68,15 +68,15 @@ namespace UI.ViewModel
             }
         }
 
-        public List<int> Kompanije
+        public List<int> KompanijeP
         {
-            get { return kompanije; }
+            get { return kompanijeP; }
             set
             {
-                if (this.kompanije != value)
+                if (this.kompanijeP != value)
                 {
-                    this.kompanije = value;
-                    OnPropertyChanged("Kompanije");
+                    this.kompanijeP = value;
+                    OnPropertyChanged("KompanijeP");
                 }
             }
         }
@@ -174,12 +174,7 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+           
 
             if (string.IsNullOrWhiteSpace(this.NazPosl))
             {
@@ -208,7 +203,6 @@ namespace UI.ViewModel
                 context.Poslovnicas.Add(p);
                 context.SaveChanges();
                 PoslsTemp.Add(p);
-                //KlijentsTemp.Clear();
                 PoslsTemp = new ObservableCollection<Poslovnica>(new KmpIgreDBModelContext().Poslovnicas.ToList());
                 NazPosl = "";
                 Lokacija = "";
@@ -238,6 +232,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -262,24 +261,35 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedPosl != null)
+            {
+                var context = new KmpIgreDBModelContext();
+                Poslovnica k = context.Poslovnicas.Where(x => x.IdPosl == SelectedPosl.IdPosl).FirstOrDefault();
+                k.NazPoslovnice = NazMPosl;
+                k.Lokacija = LokacijaM;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                PoslsTemp.Remove(k);
+                PoslsTemp.Add(k);
+                PoslsTemp = new ObservableCollection<Poslovnica>(new KmpIgreDBModelContext().Poslovnicas.ToList());
+                NazMPosl = "";
+                LokacijaM = "";
+                SelectedPosl = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            var context = new KmpIgreDBModelContext();
-            Poslovnica k = context.Poslovnicas.Where(x => x.IdPosl == SelectedPosl.IdPosl).FirstOrDefault();
-            k.NazPoslovnice = NazMPosl;
-            k.Lokacija = LokacijaM;
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            PoslsTemp.Remove(k);
-            PoslsTemp.Add(k);
-            PoslsTemp = new ObservableCollection<Poslovnica>(new KmpIgreDBModelContext().Poslovnicas.ToList());
-            NazMPosl = "";
-            LokacijaM = "";
-            SelectedPosl = null;
-
+            }
         }
     }
 }

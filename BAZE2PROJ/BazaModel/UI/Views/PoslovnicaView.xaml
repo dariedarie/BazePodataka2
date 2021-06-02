@@ -57,7 +57,7 @@
         <Button Content="OKModify" HorizontalAlignment="Left" Margin="715,413,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
         <TextBlock HorizontalAlignment="Left" Margin="622,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[NazivPM]}" VerticalAlignment="Top" Height="20" Width="136"/>
         <TextBlock HorizontalAlignment="Left" Margin="609,318,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[LokacijaM]}" VerticalAlignment="Top" Height="20" Width="136"/>
-        <ComboBox HorizontalAlignment="Left" Margin="242,291,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Kompanije}" SelectedItem="{Binding Izbor, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="242,291,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path = KompanijeP}" SelectedItem="{Binding Izbor, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Kompanije:" HorizontalAlignment="Left" Margin="242,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,0.404" Width="89"/>
     </Grid>
 

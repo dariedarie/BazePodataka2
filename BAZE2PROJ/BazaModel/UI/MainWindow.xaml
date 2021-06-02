@@ -31,7 +31,7 @@
             <views:TiketView/>
         </DataTemplate>
     </Window.Resources>
-    <Grid Background="White">
+    <Grid Background="Yellow">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

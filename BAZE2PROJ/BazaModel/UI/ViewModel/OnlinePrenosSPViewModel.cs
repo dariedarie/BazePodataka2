@@ -171,12 +171,7 @@ namespace UI.ViewModel
 
         protected override void ValidateSelf()
         {
-            bool valid = true;
-            //foreach (var item in ViewModel.NetworkEntitiesViewModel.Roads)
-            //{
-            //    if (item.id.Equals(Id))
-            //        valid = false;
-            //}
+           
 
             if (string.IsNullOrWhiteSpace(this.TipDogadjaj))
             {
@@ -230,6 +225,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -255,22 +255,35 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedPS.SifraDogadjaja != 0)
+            {
 
-            var context = new KmpIgreDBModelContext();
-            PrenosSportskogDogadjaja k = context.PrenosSportskogDogadjajas.Where(x => x.SifraDogadjaja == SelectedPS.SifraDogadjaja).FirstOrDefault();
-            k.tipDogadjaja = TipDogadjajM;
+                var context = new KmpIgreDBModelContext();
+                PrenosSportskogDogadjaja k = context.PrenosSportskogDogadjajas.Where(x => x.SifraDogadjaja == SelectedPS.SifraDogadjaja).FirstOrDefault();
+                k.tipDogadjaja = TipDogadjajM;
 
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            PrenosTemp.Remove(k);
-            PrenosTemp.Add(k);
-            PrenosTemp = new ObservableCollection<PrenosSportskogDogadjaja>(new KmpIgreDBModelContext().PrenosSportskogDogadjajas.ToList());
-            TipDogadjajM = "";
-            SelectedPS = null;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                PrenosTemp.Remove(k);
+                PrenosTemp.Add(k);
+                PrenosTemp = new ObservableCollection<PrenosSportskogDogadjaja>(new KmpIgreDBModelContext().PrenosSportskogDogadjajas.ToList());
+                TipDogadjajM = "";
+                SelectedPS = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
     }

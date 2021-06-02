@@ -192,6 +192,11 @@ namespace UI.ViewModel
                 }
 
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
         }
@@ -215,23 +220,35 @@ namespace UI.ViewModel
 
                 }
             }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
         public void OnOKModify()
         {
+            if (SelectedKmp != null)
+            {
+                var context = new KmpIgreDBModelContext();
+                KompanijaZaIgreNaSrecu k = context.KompanijaZaIgreNaSrecus.Where(x => x.IdKmp == SelectedKmp.IdKmp).FirstOrDefault();
+                k.NazKmp = NazMKmp;
+                k.AdrKmp = AdrMKmp;
+                context.Entry(k).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+                KmpsTemp.Remove(k);
+                KmpsTemp.Add(k);
+                KmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>(new KmpIgreDBModelContext().KompanijaZaIgreNaSrecus.ToList());
+                NazMKmp = "";
+                AdrMKmp = "";
+                SelectedKmp = null;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Niste selektovali nista iz tabele!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            var context = new KmpIgreDBModelContext();
-            KompanijaZaIgreNaSrecu k = context.KompanijaZaIgreNaSrecus.Where(x => x.IdKmp == SelectedKmp.IdKmp).FirstOrDefault();
-            k.NazKmp = NazMKmp;
-            k.AdrKmp = AdrMKmp;
-            context.Entry(k).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-            KmpsTemp.Remove(k);
-            KmpsTemp.Add(k);
-            KmpsTemp = new ObservableCollection<KompanijaZaIgreNaSrecu>(new KmpIgreDBModelContext().KompanijaZaIgreNaSrecus.ToList());
-            NazMKmp = "";
-            AdrMKmp = "";
-            SelectedKmp = null;
+            }
 
         }
     }

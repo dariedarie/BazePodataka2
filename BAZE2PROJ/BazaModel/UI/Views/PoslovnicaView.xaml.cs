@@ -23,6 +23,7 @@ namespace UI.Views
         public PoslovnicaView()
         {
             InitializeComponent();
+            this.DataContext = new UI.ViewModel.PoslovnicaViewModel();
         }
     }
 }
