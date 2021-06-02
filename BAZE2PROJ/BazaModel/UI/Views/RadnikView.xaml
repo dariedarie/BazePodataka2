@@ -28,7 +28,7 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding IdRada}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding IdRad}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding ImeRad}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding PrezRad}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Tip" Width="*" Binding="{Binding TipRad}"></DataGridTextColumn>
@@ -50,15 +50,21 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Button Content="Obrisi selektovanog" HorizontalAlignment="Left" Margin="646,339,0,0" VerticalAlignment="Top" Width="112" Height="44" Command="{Binding DeleteCommand}"/>
-        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="396,397,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="430,290,0,0" TextWrapping="Wrap" Text="{Binding ImeRadM, UpdateSourceTrigger=PropertyChanged ,Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="430,348,0,0" TextWrapping="Wrap" Text="{Binding PrezRadM, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
-        <Label Content="ImeModify:" HorizontalAlignment="Left" Margin="338,285,0,0" VerticalAlignment="Top" Height="32" Width="92" />
-        <Label Content="PrezModify:" HorizontalAlignment="Left" Margin="338,348,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="OKModify" HorizontalAlignment="Left" Margin="514,397,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="430,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[ImeM]}" VerticalAlignment="Top" Height="20" Width="136"/>
-        <TextBlock HorizontalAlignment="Left" Margin="430,323,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[PrezM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <Button Content="Obrisi selektovanog" HorizontalAlignment="Left" Margin="678,396,0,0" VerticalAlignment="Top" Width="112" Height="44" Command="{Binding DeleteCommand}"/>
+        <Button Content="Modifikuj" HorizontalAlignment="Left" Margin="466,397,0,0" VerticalAlignment="Top" Width="98" Height="27" Command="{Binding ModifyCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="618,290,0,0" TextWrapping="Wrap" Text="{Binding ImeRadM, UpdateSourceTrigger=PropertyChanged ,Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="618,348,0,0" TextWrapping="Wrap" Text="{Binding PrezRadM, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="136"/>
+        <Label Content="ImeModify:" HorizontalAlignment="Left" Margin="497,285,0,0" VerticalAlignment="Top" Height="32" Width="92" />
+        <Label Content="PrezModify:" HorizontalAlignment="Left" Margin="514,348,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="OKModify" HorizontalAlignment="Left" Margin="569,397,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,0.525" Height="27"  Command="{Binding OKCommand}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="618,265,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[ImeM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <TextBlock HorizontalAlignment="Left" Margin="618,323,0,0" TextWrapping="Wrap" Text="{Binding ValidationErrors[PrezM]}" VerticalAlignment="Top" Height="20" Width="136"/>
+        <ComboBox HorizontalAlignment="Left" Margin="252,295,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path = RadnikTypes}" SelectedItem="{Binding Izbor1, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Tip Radnika" HorizontalAlignment="Left" Margin="252,259,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="280,352,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path = PoslovnicaR}" SelectedItem="{Binding Izbor3, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="315,402,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path = KompanijeP}" SelectedItem="{Binding Izbor2, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Poslovnica" HorizontalAlignment="Left" Margin="212,348,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label Content="Kompanija" HorizontalAlignment="Left" Margin="244,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.567"/>
 
     </Grid>
 </UserControl>
